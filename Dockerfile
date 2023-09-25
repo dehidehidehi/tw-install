@@ -6,4 +6,3 @@ RUN ln -snf /usr/share/zoneinfo/$CONTAINER_TIMEZONE /etc/localtime && echo $CONT
 RUN chmod +x tw-install.sh && ./tw-install.sh
 ARG TASKDDATA
 ENV TASKDDATA ${TASKDDATA:-/var/taskd}
-ENTRYPOINT taskd server --data ${TASKDDATA}

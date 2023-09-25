@@ -4,3 +4,4 @@ TW_USERNAME=First
 TW_ORGANISATION=Public
 PORT=53589
 TASKDDATA=/var/taskd
+CONTAINER=tw-instance
