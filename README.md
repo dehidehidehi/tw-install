@@ -34,13 +34,7 @@ docker build -t tw-install .
 ```
 ### Run container
 ```shell
-docker run \
--p 53589:53589 \
--e TW_USERNAME=First \
--e TW_ORGANISATION=Public \
---name tw-instance \
--d \
-tw-install 
+source ./tw-install-for-docker.sh
 ```
 
 ## How to use (for developers)
