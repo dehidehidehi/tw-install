@@ -5,15 +5,20 @@
 
 IMAGE_NAME=tw-install
 
+docker stop $CONTAINER	&>	/dev/null
+docker rm $CONTAINER	&>	/dev/null
+
+# Counter-intuively, the arguments to the `taskd` command come after specifying the
+# docker image param.
 docker run \
 -p "$PORT:53589" \
 -e "TW_USERNAME=$TW_USERNAME" \
 -e "TW_ORGANISATION=$TW_ORGANISATION" \
 --name $CONTAINER \
--v ./var:/var \
---entrypoint "whereis taskd" \
+--entrypoint 'taskd' \
 -d \
-$IMAGE_NAME
+$IMAGE_NAME \
+'server'
 
 # define the hostname -> for docker this is the container id
 # IP=$(sudo docker ps -aqf "name=tw-instance")
