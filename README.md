@@ -12,7 +12,7 @@ This installs taskwarrior and taskwarrior server for you on an Ubuntu device (or
 Run the Taskwarrior installer from the root of this repository with:
 ```
 cd ~/.task
-git clone git@github.com:HiveMinds-EU/tw-install.git install
+git clone git@github.com:dehidehidehi/tw-install.git install
 cd install
 chmod +x tw-install.sh
 ./tw-install.sh
