@@ -1,4 +1,7 @@
 #!/bin/bash
+
+. helper.sh
+
 mkdir_taskd_data() {
 	TASKDDATA="$1"
 	local output="$(mkdir -p "$TASKDDATA")"
