@@ -12,18 +12,23 @@ LINUX_USERNAME=$(whoami)
 echo "$LINUX_USERNAME"
 
 # define the hostname
-#IP=localhost # Worked after hostname -f did not work (anymore) (Did not work the first time after it worked)
-#IP=localhost # did not work anymore after it stopped working and after hostname -f did not work anymore either
-#IP=$(hostname -f) #yields: Can't use SSL_get_servername BUT IT DOES WORK!
-#IP=$(hostname -f) #was connected but did not verify certificate
-#IP=$(hostname -f) # Did not work anymore after localhost did not work anymore
 IP=$(hostname -f)
-#IP=0.0.0.0 # doesnt work
-#IP=127.0.0.1 #Can't use SSL_get_servername
-#IP=127.0.1.1 #Can't use SSL_get_servername
-#IP=obfuscated ip4 #Can't use SSL_get_servername
-#IP=192.168.2.219
-echo "$IP"
+echo "Initial hostname: $IP"
+# check if TW_HOSTNAME is not null or empty
+if [ -z "$TW_HOSTNAME" ]; then
+    echo "TW_HOSTNAME is empty or not set. No action taken."
+else 
+    IP="$TW_HOSTNAME"
+    echo "IP set to TW_HOSTNAME: $IP"
+fi
+# check if first argument is not null or empty
+if [ -z "$1" ]; then
+    echo "Input argument is empty or not set. No action taken."
+else 
+    IP="$1"
+    echo "IP set to input argument: $IP"
+fi
+echo "Final hostname: $IP"
 
 # function to swap entire line in file that contains a substring
 swap_line_containing_string() {
