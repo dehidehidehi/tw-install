@@ -1,5 +1,5 @@
 #!/bin/bash
-run_at_boot_command="export TASKDDATA=$TASKDDATA && taskdctl start"
+run_at_boot_command="sudo taskd server --daemon --data /var/taskd"
 # Check if the cron job already exists
 if crontab -l | grep -q "$run_at_boot_command"; then
   echo "Cron job already exists. Skipping setup."
